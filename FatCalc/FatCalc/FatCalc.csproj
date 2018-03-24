@@ -60,7 +60,6 @@
       <DependentUpon>BusyDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="CalcTools\FatUIntDiv.cs" />
-    <Compile Include="CalcTools\FatUIntDivMS.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="GlobalProcMtx.cs" />

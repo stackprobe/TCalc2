@@ -300,36 +300,7 @@ namespace Charlotte.CalcTools
 
 				return ret;
 			}
-
-			if (Gnd.MsdnDivFlag)
-				FatUIntDivMS.Div(a, b, ret);
-			else
-				FatUIntDiv.Perform(a, b, ret);
-
-			if (Gnd.DebugMode)
-			{
-				FatUInt r1 = new FatUInt();
-				FatUInt r2 = new FatUInt();
-
-				Logger.WriteLine("FatUIntDivMS.Div Before");
-				FatUIntDivMS.Div(a, b, r1);
-				Logger.WriteLine("FatUIntDiv.Perform Before");
-				FatUIntDiv.Perform(a, b, r2);
-				Logger.WriteLine("FatUIntDiv.Perform After");
-
-				if (FatUInt.Red(r1, r2).IsZero() == false)
-					throw null;
-
-				if (r1.Rem != null || r2.Rem != null)
-				{
-					if (r1.Rem == null || r2.Rem == null)
-						throw null;
-
-					if (FatUInt.Red(r1.Rem, r2.Rem).IsZero() == false)
-						throw null;
-				}
-			}
-
+			FatUIntDiv.Perform(a, b, ret);
 			return ret;
 		}
 

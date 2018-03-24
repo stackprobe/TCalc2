@@ -12,7 +12,6 @@ namespace Charlotte
 	public class Gnd
 	{
 		public static bool DebugMode = true;
-		public static bool MsdnDivFlag = true;
 		public static bool SffBinaryMode = true;
 		public static UInt64 Radix = 10; // 2 ～ 2^64-1
 		public static int Basement = 100; // 0 ～ IMAX
@@ -28,7 +27,6 @@ namespace Charlotte
 				int c = 0;
 
 				DebugMode = StringTools.ToFlag(lines[c++]);
-				MsdnDivFlag = StringTools.ToFlag(lines[c++]);
 				SffBinaryMode = StringTools.ToFlag(lines[c++]);
 				Radix = UInt64Tools.ToUInt64(lines[c++], 2, UInt64.MaxValue, 10);
 				Basement = IntTools.ToInt(lines[c++], 0, IntTools.IMAX, 100);
