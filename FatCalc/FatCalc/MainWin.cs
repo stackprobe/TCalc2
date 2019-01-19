@@ -111,6 +111,8 @@ namespace Charlotte
 			}
 
 			this.RefreshUi();
+
+			Common.PostShown(this);
 		}
 
 		private void RefreshUi()
