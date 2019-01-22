@@ -191,6 +191,8 @@ namespace Charlotte
 			}
 		}
 
+		// sync > @ PostShown
+
 		public static void PostShown(Form f)
 		{
 			List<Control.ControlCollection> controlTable = new List<Control.ControlCollection>();
@@ -210,6 +212,7 @@ namespace Charlotte
 							controlTable.Add(tp.Controls);
 						}
 					}
+
 					TextBox tb = control as TextBox;
 
 					if (tb != null)
@@ -231,5 +234,7 @@ namespace Charlotte
 				}
 			}
 		}
+
+		// < sync
 	}
 }
