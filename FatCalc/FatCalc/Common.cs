@@ -203,6 +203,12 @@ namespace Charlotte
 			{
 				foreach (Control control in controlTable[index])
 				{
+					GroupBox gb = control as GroupBox;
+
+					if (gb != null)
+					{
+						controlTable.Add(gb.Controls);
+					}
 					TabControl tc = control as TabControl;
 
 					if (tc != null)
@@ -212,7 +218,13 @@ namespace Charlotte
 							controlTable.Add(tp.Controls);
 						}
 					}
+					SplitContainer sc = control as SplitContainer;
 
+					if (sc != null)
+					{
+						controlTable.Add(sc.Panel1.Controls);
+						controlTable.Add(sc.Panel2.Controls);
+					}
 					TextBox tb = control as TextBox;
 
 					if (tb != null)
