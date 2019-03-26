@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Charlotte.CalcTools
+namespace Charlotte.CalcUtils
 {
 	public class FatFloat
 	{

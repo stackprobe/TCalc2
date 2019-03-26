@@ -59,7 +59,7 @@
     <Compile Include="BusyDlg.Designer.cs">
       <DependentUpon>BusyDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="CalcTools\FatUIntDiv.cs" />
+    <Compile Include="CalcUtils\FatUIntDiv.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="GlobalProcMtx.cs" />
@@ -87,7 +87,7 @@
     <Compile Include="Tools\AutoTable.cs" />
     <Compile Include="Tools\BracketParser.cs" />
     <Compile Include="Tools\ByteBuffer.cs" />
-    <Compile Include="CalcTools\Calc.cs" />
+    <Compile Include="CalcUtils\Calc.cs" />
     <Compile Include="Tools\CrossDictionary.cs" />
     <Compile Include="Tools\CrossDictionaryTools.cs" />
     <Compile Include="Tools\CsvData.cs" />
@@ -95,10 +95,10 @@
     <Compile Include="Tools\DebugTools.cs" />
     <Compile Include="Tools\DictionaryTools.cs" />
     <Compile Include="Tools\DirectoryTools.cs" />
-    <Compile Include="CalcTools\FatFloat.cs" />
-    <Compile Include="CalcTools\FatUFloat.cs" />
-    <Compile Include="CalcTools\FatUInt.cs" />
-    <Compile Include="CalcTools\FatValue.cs" />
+    <Compile Include="CalcUtils\FatFloat.cs" />
+    <Compile Include="CalcUtils\FatUFloat.cs" />
+    <Compile Include="CalcUtils\FatUInt.cs" />
+    <Compile Include="CalcUtils\FatValue.cs" />
     <Compile Include="Tools\FileSorter.cs" />
     <Compile Include="Tools\FileTools.cs" />
     <Compile Include="Tools\HttpClient.cs" />

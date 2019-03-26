@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Charlotte.Tools;
 
-namespace Charlotte.CalcTools
+namespace Charlotte.CalcUtils
 {
 	public class FatUFloat
 	{

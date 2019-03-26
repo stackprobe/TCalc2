@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Charlotte.Tools;
 using System.Threading;
-using Charlotte.CalcTools;
+using Charlotte.CalcUtils;
 
 namespace Charlotte
 {
