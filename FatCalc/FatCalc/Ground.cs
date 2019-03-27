@@ -26,6 +26,9 @@ namespace Charlotte
 				List<string> lines = LoadConfFile(StringTools.Combine(BootTools.SelfDir, "FatCalc.conf"));
 				int c = 0;
 
+				if (lines.Count != int.Parse(lines[c++]))
+					throw new Exception("設定ファイルの記述に問題があります。(ITEM_NUM)");
+
 				DebugMode = StringTools.ToFlag(lines[c++]);
 				SffBinaryMode = StringTools.ToFlag(lines[c++]);
 				Radix = UInt64Tools.ToUInt64(lines[c++], 2, UInt64.MaxValue, 10);
@@ -34,8 +37,12 @@ namespace Charlotte
 				OperandLenMax = IntTools.ToInt(lines[c++], 1, IntTools.IMAX, 100000);
 				AnswerLenMax = IntTools.ToInt(lines[c++], 1, IntTools.IMAX, 200000);
 			}
-			catch
-			{ }
+			catch (Exception e)
+			{
+#if DEBUG == false
+				ErrorMessage = e.Message;
+#endif
+			}
 		}
 
 		private static List<string> LoadConfFile(string file)

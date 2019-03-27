@@ -86,7 +86,7 @@ namespace Charlotte.CalcUtils
 				default:
 					throw new ArgumentException();
 			}
-			string ret = FatValue.GetString(ans, _bracketMin);
+			string ret = FatValue.GetString(ans, _bracketMin, _basement);
 			return ret;
 		}
 
@@ -108,7 +108,7 @@ namespace Charlotte.CalcUtils
 
 			FatFloat a = FatValue.GetFatFloat(operand, _radix);
 			FatFloat ans = FatFloat.Root(a, exponent, _basement);
-			string ret = FatValue.GetString(ans, _bracketMin);
+			string ret = FatValue.GetString(ans, _bracketMin, _basement);
 			return ret;
 		}
 
@@ -119,7 +119,7 @@ namespace Charlotte.CalcUtils
 
 			FatFloat a = FatValue.GetFatFloat(operand, _radix);
 			FatFloat ans = a.ChangeRadix(radixNew, _basement);
-			string ret = FatValue.GetString(ans, _bracketMin);
+			string ret = FatValue.GetString(ans, _bracketMin, _basement);
 			return ret;
 		}
 

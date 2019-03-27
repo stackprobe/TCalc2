@@ -8,11 +8,11 @@ namespace Charlotte.CalcUtils
 {
 	public class FatUFloat
 	{
-		// 評価値 == _value / (_radix ^ _exponent)
+		// 評価値 == _value / (_radix ^ _decimalPoint)
 
 		private FatUInt _value;
 		private UInt64 _radix; // 2 ～ 2^64-1
-		private int _exponent; // 0 ～ IMAX
+		private int _decimalPoint; // 0 ～ IMAX
 
 		public FatUInt Value
 		{
@@ -30,35 +30,35 @@ namespace Charlotte.CalcUtils
 			}
 		}
 
-		public int Exponent
+		public int DecimalPoint
 		{
 			get
 			{
-				return _exponent;
+				return _decimalPoint;
 			}
 		}
 
-		public FatUFloat(FatUInt value, UInt64 radix, int exponent)
+		public FatUFloat(FatUInt value, UInt64 radix, int decimalPoint)
 		{
 			if (value == null) throw new ArgumentException();
 			if (radix < 2) throw new ArgumentOutOfRangeException();
-			if (exponent < 0 || IntTools.IMAX < exponent) throw new ArgumentOutOfRangeException();
+			if (decimalPoint < 0 || IntTools.IMAX < decimalPoint) throw new ArgumentOutOfRangeException();
 
 			_value = value;
 			_radix = radix;
-			_exponent = exponent;
+			_decimalPoint = decimalPoint;
 		}
 
 		public FatUFloat GetClone()
 		{
-			return new FatUFloat(_value.GetClone(), _radix, _exponent);
+			return new FatUFloat(_value.GetClone(), _radix, _decimalPoint);
 		}
 
-		public FatUFloat ChangeExponent(int exponentNew) // ret: .Value.Rem != null ... 丸め発生
+		public FatUFloat ChangeDecimalPoint(int decimalPointNew) // ret: .Value.Rem != null ... 丸め発生
 		{
-			if (exponentNew < 0 || IntTools.IMAX < exponentNew) throw new ArgumentOutOfRangeException();
+			if (decimalPointNew < 0 || IntTools.IMAX < decimalPointNew) throw new ArgumentOutOfRangeException();
 
-			int e = exponentNew - _exponent;
+			int e = decimalPointNew - _decimalPoint;
 			FatUInt value;
 
 			if (e < 0)
@@ -68,7 +68,7 @@ namespace Charlotte.CalcUtils
 			else
 				value = _value.GetClone();
 
-			return new FatUFloat(value, _radix, exponentNew);
+			return new FatUFloat(value, _radix, decimalPointNew);
 		}
 
 		private static void Synchronize(ref FatUFloat a, ref FatUFloat b, int basement = 0)
@@ -78,18 +78,18 @@ namespace Charlotte.CalcUtils
 			if (a.Radix != b.Radix) throw new ArgumentException("diff radix");
 			if (basement < 0 || IntTools.IMAX < basement) throw new ArgumentOutOfRangeException();
 
-			int e = a.Exponent - b.Exponent - basement;
+			int e = a.DecimalPoint - b.DecimalPoint - basement;
 
 			if (e < 0)
-				a = a.ChangeExponent(a.Exponent - e);
+				a = a.ChangeDecimalPoint(a.DecimalPoint - e);
 			else if (0 < e)
-				b = b.ChangeExponent(b.Exponent + e);
+				b = b.ChangeDecimalPoint(b.DecimalPoint + e);
 		}
 
 		public static FatUFloat Add(FatUFloat a, FatUFloat b)
 		{
 			Synchronize(ref a, ref b);
-			return new FatUFloat(FatUInt.Add(a.Value, b.Value), a.Radix, a.Exponent);
+			return new FatUFloat(FatUInt.Add(a.Value, b.Value), a.Radix, a.DecimalPoint);
 		}
 
 		public static FatUFloat Red(FatUFloat a, FatUFloat b) // ret: null ... < 0
@@ -100,13 +100,13 @@ namespace Charlotte.CalcUtils
 			if (value == null)
 				return null;
 
-			return new FatUFloat(value, a.Radix, a.Exponent);
+			return new FatUFloat(value, a.Radix, a.DecimalPoint);
 		}
 
 		public static FatUFloat Mul(FatUFloat a, FatUFloat b)
 		{
-			if (IntTools.IMAX < a.Exponent + b.Exponent) throw new ArgumentException();
-			return new FatUFloat(FatUInt.Mul(a.Value, b.Value), a.Radix, a.Exponent + b.Exponent);
+			if (IntTools.IMAX < a.DecimalPoint + b.DecimalPoint) throw new ArgumentException();
+			return new FatUFloat(FatUInt.Mul(a.Value, b.Value), a.Radix, a.DecimalPoint + b.DecimalPoint);
 		}
 
 		public static FatUFloat Div(FatUFloat a, FatUFloat b, int basement) // ret: .Value.Rem != null ... 丸め発生
@@ -131,9 +131,9 @@ namespace Charlotte.CalcUtils
 			if (exponent == 0)
 				return new FatUFloat(new FatUInt(1), a.Radix, 0);
 
-			if (exponent < 1 || IntTools.IMAX / exponent < a.Exponent) throw new ArgumentOutOfRangeException();
+			if (exponent < 1 || IntTools.IMAX / exponent < a.DecimalPoint) throw new ArgumentOutOfRangeException();
 
-			return new FatUFloat(FatUInt.Power(a.Value, exponent), a.Radix, a.Exponent * exponent);
+			return new FatUFloat(FatUInt.Power(a.Value, exponent), a.Radix, a.DecimalPoint * exponent);
 		}
 
 		public static FatUFloat Root(FatUFloat a, int exponent, int basement) // ret: .Value.Rem != null ... 丸め発生
@@ -142,7 +142,7 @@ namespace Charlotte.CalcUtils
 			if (exponent < 1 || IntTools.IMAX < exponent) throw new ArgumentOutOfRangeException();
 			if (basement < 0 || IntTools.IMAX / exponent < basement) throw new ArgumentOutOfRangeException();
 
-			FatUFloat ret = new FatUFloat(FatUInt.Root(a.ChangeExponent(exponent * basement).Value, exponent), a.Radix, basement);
+			FatUFloat ret = new FatUFloat(FatUInt.Root(a.ChangeDecimalPoint(exponent * basement).Value, exponent), a.Radix, basement);
 			FatUFloat rem = Red(a, Power(ret, exponent));
 
 			if (rem.Value.IsZero() == false)
@@ -158,14 +158,14 @@ namespace Charlotte.CalcUtils
 
 			FatUInt value = _value;
 			value = FatUInt.Mul(value, FatUInt.Power(new FatUInt(radixNew), basement));
-			value = FatUInt.Div(value, FatUInt.Power(new FatUInt(_radix), _exponent));
+			value = FatUInt.Div(value, FatUInt.Power(new FatUInt(_radix), _decimalPoint));
 
 			return new FatUFloat(value, radixNew, basement);
 		}
 
 		public override string ToString()
 		{
-			return _value.ToString() + ":" + _radix + ":" + _exponent;
+			return _value.ToString() + ":" + _radix + ":" + _decimalPoint;
 		}
 	}
 }

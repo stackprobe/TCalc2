@@ -227,7 +227,7 @@
 
 ■ソースコード
 
-　https://github.com/stackprobe/CSharp/tree/master/TCalc2
+　https://github.com/stackprobe/TCalc2
 
 　★最新のリポジトリはリリース時のソースコードと異なるかもしれません。
 

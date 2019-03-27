@@ -10,7 +10,7 @@ namespace Charlotte.CalcUtils
 	{
 		private List<UInt64> _figures = new List<UInt64>();
 		private UInt64 _radix = Calc.DEF_RADIX; // 2 ～ 2^64-1
-		private int _exponent = 0; // 0 ～ IMAX
+		private int _decimalPoint = 0; // 0 ～ IMAX
 		private int _sign = 1; // -1 or 1
 		private bool _rem = false;
 
@@ -27,7 +27,7 @@ namespace Charlotte.CalcUtils
 			{
 				_figures.Clear();
 				_radix = radix;
-				_exponent = 0;
+				_decimalPoint = 0;
 				_sign = 1;
 				_rem = false;
 			}
@@ -92,7 +92,7 @@ namespace Charlotte.CalcUtils
 			_figures.Add(value);
 
 			if (readDot)
-				_exponent++;
+				_decimalPoint++;
 		}
 
 		private void Normalize()
@@ -103,24 +103,23 @@ namespace Charlotte.CalcUtils
 			while (0 < end && _figures[end - 1] == 0)
 				end--;
 
-			if (_rem == false)
+			while (bgn < end && _figures[bgn] == 0 && 1 <= _decimalPoint)
 			{
-				while (bgn < end && _figures[bgn] == 0 && 1 <= _exponent)
-				{
-					bgn++;
-					_exponent--;
-				}
+				bgn++;
+				_decimalPoint--;
 			}
 			_figures = _figures.GetRange(bgn, end - bgn);
 
 			if (_figures.Count == 0)
 			{
-				_exponent = 0;
-				_sign = 1;
+				_decimalPoint = 0;
+
+				if (_rem == false) // 余りがある場合、ゼロではないので、符号を消してはならない。
+					_sign = 1;
 			}
 		}
 
-		public string GetString(int bracketMin = Calc.DEF_BRACKET_MIN) // bracketMin: 0 ～ 36
+		public string GetString(int bracketMin = Calc.DEF_BRACKET_MIN, int basement = -1) // bracketMin: 0 ～ 36
 		{
 			if (bracketMin < 0 || 36 < bracketMin) throw new ArgumentOutOfRangeException();
 
@@ -129,13 +128,30 @@ namespace Charlotte.CalcUtils
 			StringBuilder buff = new StringBuilder();
 
 			if (_rem)
+			{
 				buff.Append('*');
 
-			int fEnd = Math.Max(_figures.Count, _exponent + 1);
+				if (basement < 0 || IntTools.IMAX < basement)
+					throw null; // never
+
+				basement -= _decimalPoint;
+
+				if (basement < 0)
+					throw null; // never
+
+				for (int count = 0; count < basement; count++)
+				{
+					if (0 < bracketMin)
+						buff.Append("0");
+					else
+						buff.Append(StringTools.Reverse("[0]"));
+				}
+			}
+			int fEnd = Math.Max(_figures.Count, _decimalPoint + 1);
 
 			for (int index = 0; index < fEnd; index++)
 			{
-				if (index == _exponent)
+				if (index == _decimalPoint)
 					buff.Append('.');
 
 				UInt64 value;
@@ -242,7 +258,7 @@ namespace Charlotte.CalcUtils
 			{
 				_figures.Clear();
 				_radix = src.Value.Radix;
-				_exponent = src.Value.Exponent;
+				_decimalPoint = src.Value.DecimalPoint;
 				_sign = src.Sign;
 				_rem = src.Value.Value.Rem != null;
 			}
@@ -385,7 +401,7 @@ namespace Charlotte.CalcUtils
 
 			// 面倒なので normalize しない。ていうか多分必要無い。
 
-			return new FatFloat(new FatUFloat(value, _radix, _exponent), _sign);
+			return new FatFloat(new FatUFloat(value, _radix, _decimalPoint), _sign);
 		}
 
 		private void MkDZ(out UInt64 d, out int z, UInt64 maxval = UInt64.MaxValue)
@@ -409,11 +425,11 @@ namespace Charlotte.CalcUtils
 			return mid.GetFatFloat();
 		}
 
-		public static string GetString(FatFloat src, int bracketMin = Calc.DEF_BRACKET_MIN)
+		public static string GetString(FatFloat src, int bracketMin = Calc.DEF_BRACKET_MIN, int basement = -1)
 		{
 			FatValue mid = new FatValue();
 			mid.SetFatFloat(src);
-			return mid.GetString(bracketMin);
+			return mid.GetString(bracketMin, basement);
 		}
 	}
 }
