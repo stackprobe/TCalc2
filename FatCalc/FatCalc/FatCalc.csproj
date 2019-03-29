@@ -59,6 +59,17 @@
     <Compile Include="BusyDlg.Designer.cs">
       <DependentUpon>BusyDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalcUtilsD\CalcD.cs" />
+    <Compile Include="CalcUtilsD\FatConverter.cs" />
+    <Compile Include="CalcUtilsD\FatFloat.cs" />
+    <Compile Include="CalcUtilsD\FatFloatCalc.cs" />
+    <Compile Include="CalcUtilsD\FatUFloat.cs" />
+    <Compile Include="CalcUtilsD\FatUFloatCalc.cs" />
+    <Compile Include="CalcUtilsD\FatUInt.cs" />
+    <Compile Include="CalcUtilsD\FatUIntCalc.cs" />
+    <Compile Include="CalcUtilsD\FatUIntCalcDiv.cs" />
+    <Compile Include="CalcUtilsD\FatUIntDiv.cs" />
+    <Compile Include="CalcUtilsD\Utils.cs" />
     <Compile Include="CalcUtils\FatUIntDiv.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Consts.cs" />
@@ -79,45 +90,17 @@
     </Compile>
     <Compile Include="ControlRectMan.cs" />
     <Compile Include="PostBox.cs" />
+    <Compile Include="Tools\IntTools.cs" />
     <Compile Include="Tools\UInt64Tools.cs" />
     <Compile Include="WordWrapOffTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\ArrayTools.cs" />
-    <Compile Include="Tools\AutoTable.cs" />
-    <Compile Include="Tools\BracketParser.cs" />
-    <Compile Include="Tools\ByteBuffer.cs" />
     <Compile Include="CalcUtils\Calc.cs" />
-    <Compile Include="Tools\CrossDictionary.cs" />
-    <Compile Include="Tools\CrossDictionaryTools.cs" />
-    <Compile Include="Tools\CsvData.cs" />
-    <Compile Include="Tools\DateTimeTools.cs" />
-    <Compile Include="Tools\DebugTools.cs" />
-    <Compile Include="Tools\DictionaryTools.cs" />
-    <Compile Include="Tools\DirectoryTools.cs" />
     <Compile Include="CalcUtils\FatFloat.cs" />
     <Compile Include="CalcUtils\FatUFloat.cs" />
     <Compile Include="CalcUtils\FatUInt.cs" />
     <Compile Include="CalcUtils\FatValue.cs" />
-    <Compile Include="Tools\FileSorter.cs" />
-    <Compile Include="Tools\FileTools.cs" />
-    <Compile Include="Tools\HttpClient.cs" />
-    <Compile Include="Tools\HttpRequest.cs" />
-    <Compile Include="Tools\HttpResponse.cs" />
-    <Compile Include="Tools\IntTools.cs" />
-    <Compile Include="Tools\JString.cs" />
-    <Compile Include="Tools\LongTools.cs" />
-    <Compile Include="Tools\MathTools.cs" />
-    <Compile Include="Tools\Mutector.cs" />
-    <Compile Include="Tools\MutexData.cs" />
-    <Compile Include="Tools\NamedEventData.cs" />
-    <Compile Include="Tools\Nectar.cs" />
-    <Compile Include="Tools\SecurityTools.cs" />
-    <Compile Include="Tools\StringIndexOf.cs" />
     <Compile Include="Tools\StringTools.cs" />
-    <Compile Include="Tools\TextFileSorter.cs" />
-    <Compile Include="Tools\TimeData.cs" />
-    <Compile Include="Tools\XNode.cs" />
     <EmbeddedResource Include="BusyDlg.resx">
       <DependentUpon>BusyDlg.cs</DependentUpon>
     </EmbeddedResource>

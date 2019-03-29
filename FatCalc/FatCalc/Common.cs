@@ -73,7 +73,7 @@ namespace Charlotte
 				{
 					string format = tb.Text;
 
-					format = StringTools.ReplaceChar(format, StringTools.DIGIT, '9');
+					format = StringTools.ReplaceChar(format, StringTools.DECIMAL, '9');
 					format = StringTools.ReplaceLoop(format, "99", "9");
 
 					if (format != "9")

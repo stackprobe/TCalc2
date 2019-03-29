@@ -9,28 +9,15 @@ namespace Charlotte.Tools
 	{
 		public const int IMAX = 1000000000; // 10^9
 
-		public static int Comp(int a, int b)
+		public static int ToInt(double value)
 		{
-			if (a < b)
-				return -1;
-
-			if (b < a)
-				return 1;
-
-			return 0;
+			if (value < 0.0)
+				return (int)(value - 0.5);
+			else
+				return (int)(value + 0.5);
 		}
 
-		public static bool IsRange(int value, int minval = 0, int maxval = IMAX)
-		{
-			return minval <= value && value <= maxval;
-		}
-
-		public static int ToRange(int value, int minval = 0, int maxval = IMAX)
-		{
-			return Math.Min(Math.Max(value, minval), maxval);
-		}
-
-		public int Parse(string str, int minval = 0, int maxval = IMAX, int defval = -1)
+		public static int ToInt(string str, int minval, int maxval, int defval)
 		{
 			try
 			{
@@ -47,41 +34,9 @@ namespace Charlotte.Tools
 			return defval;
 		}
 
-		public static uint Root(UInt64 value)
+		public static bool IsRange(int value, int minval = 0, int maxval = IMAX)
 		{
-			uint ret = 0u;
-
-			for (uint bit = 1u << 31; bit != 0; bit >>= 1)
-			{
-				uint t = ret | bit;
-
-				if ((UInt64)t * t <= value)
-					ret = t;
-			}
-			return ret;
-		}
-
-		public static int ToInt(double value)
-		{
-			if (value < 0.0)
-				return (int)(value - 0.5);
-			else
-				return (int)(value + 0.5);
-		}
-
-		public static int ToInt(string str, int minval, int maxval, int defval)
-		{
-			try
-			{
-				int value = int.Parse(str);
-
-				if (IsRange(value, minval, maxval))
-					return value;
-			}
-			catch
-			{ }
-
-			return defval;
+			return minval <= value && value <= maxval;
 		}
 	}
 }

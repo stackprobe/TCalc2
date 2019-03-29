@@ -14,7 +14,7 @@ namespace Charlotte.CalcUtils
 		private int _sign = 1; // -1 or 1
 		private bool _rem = false;
 
-		private const string DIGIT_36 = StringTools.DIGIT + StringTools.alpha;
+		private const string DIGIT_36 = StringTools.DECIMAL + StringTools.alpha;
 
 		public void SetString(string str, UInt64 radix = Calc.DEF_RADIX) // 丸め記号は無視する！
 		{
@@ -57,7 +57,7 @@ namespace Charlotte.CalcUtils
 						if (chr == ']')
 							break;
 
-						int val = StringTools.DIGIT.IndexOf(chr);
+						int val = StringTools.DECIMAL.IndexOf(chr);
 
 						if (val != -1)
 						{

@@ -23,7 +23,7 @@ namespace Charlotte
 		{
 			try
 			{
-				List<string> lines = LoadConfFile(StringTools.Combine(BootTools.SelfDir, "FatCalc.conf"));
+				List<string> lines = LoadConfFile(Path.Combine(BootTools.SelfDir, "FatCalc.conf"));
 				int c = 0;
 
 				if (lines.Count != int.Parse(lines[c++]))
@@ -74,7 +74,7 @@ namespace Charlotte
 		{
 			try
 			{
-				string[] lines = File.ReadAllLines(StringTools.Combine(BootTools.SelfDir, "FatCalc.dat"), StringTools.ENCODING_SJIS);
+				string[] lines = File.ReadAllLines(Path.Combine(BootTools.SelfDir, "FatCalc.dat"), StringTools.ENCODING_SJIS);
 				int c = 0;
 
 				MainWin_L = int.Parse(lines[c++]);
@@ -104,7 +104,7 @@ namespace Charlotte
 				lines.Add("" + MainWin_H);
 				lines.Add("" + MainTab_SelectedIndex);
 
-				File.WriteAllLines(StringTools.Combine(BootTools.SelfDir, "FatCalc.dat"), lines, StringTools.ENCODING_SJIS);
+				File.WriteAllLines(Path.Combine(BootTools.SelfDir, "FatCalc.dat"), lines, StringTools.ENCODING_SJIS);
 			}
 			catch
 			{ }
