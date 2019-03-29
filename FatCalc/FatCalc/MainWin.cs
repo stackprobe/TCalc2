@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Charlotte.Tools;
 using System.Threading;
 using Charlotte.CalcUtils;
+using Charlotte.CalcUtilsD;
 
 namespace Charlotte
 {
@@ -55,6 +56,8 @@ namespace Charlotte
 
 			WordWrapOffTools.WordWrapOff(this.CxOp);
 			WordWrapOffTools.WordWrapOff(this.CxAns);
+
+			WordWrapOffTools.SetEnabledDoubleBuffer(this.MainTab); // FIXME 効果あんのか？
 
 			{
 				Control refCtrl = this.TabFourOperation;
@@ -403,6 +406,17 @@ namespace Charlotte
 			Common.KeyPressed(e, this.CxAns, this.CxOp);
 		}
 
+		private static bool IsRadixForCalcD(UInt64 radix)
+		{
+			return
+				radix <= (UInt64)IntTools.IMAX &&
+				radix != 2 &&
+				radix != 4 &&
+				radix != 16 &&
+				radix != 256 &&
+				radix != 65536;
+		}
+
 		private void Execute_Click(object sender, EventArgs e)
 		{
 			Gnd.SaveDataFile();
@@ -419,43 +433,79 @@ namespace Charlotte
 			{
 				try
 				{
-					Calc calc = new Calc(Gnd.Radix, Gnd.Basement, Gnd.BracketMin);
-
-					ngOp = 0;
-					l = calc.Normalize(l);
-					ngOp = 1;
-					r = calc.Normalize(r);
-					ngOp = -1;
-
-					switch (operation)
+					if (IsRadixForCalcD(Gnd.Radix) && operation <= 3)
 					{
-						case 0: // add
-							ans = calc.Execute(l, '+', r);
-							break;
+						CalcD calcD = new CalcD((int)Gnd.Radix, Gnd.Basement);
 
-						case 1: // red
-							ans = calc.Execute(l, '-', r);
-							break;
+						ngOp = 0;
+						calcD.Calc(l, "+", "0");
+						ngOp = 1;
+						calcD.Calc(r, "+", "0");
+						ngOp = -1;
 
-						case 2: // mul
-							ans = calc.Execute(l, '*', r);
-							break;
+						switch (operation)
+						{
+							case 0: // add
+								ans = calcD.Calc(l, "+", r);
+								break;
 
-						case 3: // div
-							ans = calc.Execute(l, '/', r);
-							break;
+							case 1: // red
+								ans = calcD.Calc(l, "-", r);
+								break;
 
-						case 4: // mod
-							ans = calc.Execute(l, '%', r);
-							break;
+							case 2: // mul
+								ans = calcD.Calc(l, "*", r);
+								break;
 
-						case 5: // mod_int
-							calc.Basement = 0;
-							ans = calc.Execute(l, '%', r);
-							break;
+							case 3: // div
+								ans = calcD.Calc(l, "/", r);
+								break;
 
-						default:
-							throw new Exception("Unknown operation: " + operation);
+							default:
+								throw new Exception("Unknown operation: " + operation);
+						}
+						ans = CalcDUtils.ApplyBracketMin(ans, Gnd.BracketMin);
+					}
+					else
+					{
+						Calc calc = new Calc(Gnd.Radix, Gnd.Basement, Gnd.BracketMin);
+
+						ngOp = 0;
+						l = calc.Normalize(l);
+						ngOp = 1;
+						r = calc.Normalize(r);
+						ngOp = -1;
+
+						switch (operation)
+						{
+							case 0: // add
+								ans = calc.Execute(l, '+', r);
+								break;
+
+							case 1: // red
+								ans = calc.Execute(l, '-', r);
+								break;
+
+							case 2: // mul
+								ans = calc.Execute(l, '*', r);
+								break;
+
+							case 3: // div
+								ans = calc.Execute(l, '/', r);
+								break;
+
+							case 4: // mod
+								ans = calc.Execute(l, '%', r);
+								break;
+
+							case 5: // mod_int
+								calc.Basement = 0;
+								ans = calc.Execute(l, '%', r);
+								break;
+
+							default:
+								throw new Exception("Unknown operation: " + operation);
+						}
 					}
 				}
 				catch (Exception ex)
@@ -491,24 +541,48 @@ namespace Charlotte
 			{
 				try
 				{
-					Calc calc = new Calc(Gnd.Radix, Gnd.Basement, Gnd.BracketMin);
-
-					ngOp = 0;
-					l = calc.Normalize(l);
-					ngOp = -1;
-
-					switch (operation)
+					if (IsRadixForCalcD(Gnd.Radix) && operation <= 0) // TODO root
 					{
-						case 0: // power
-							ans = calc.Power(l, int.Parse(exponent));
-							break;
+						CalcD calcD = new CalcD((int)Gnd.Radix, Gnd.Basement);
 
-						case 1: // root
-							ans = calc.Root(l, int.Parse(exponent));
-							break;
+						ngOp = 0;
+						calcD.Calc(l, "+", "0");
+						ngOp = -1;
 
-						default:
-							throw new Exception("Unknown operation: " + operation);
+						switch (operation)
+						{
+							case 0: // power
+								ans = calcD.Power(l, int.Parse(exponent));
+								break;
+
+							// TODO root
+
+							default:
+								throw new Exception("Unknown operation: " + operation);
+						}
+						ans = CalcDUtils.ApplyBracketMin(ans, Gnd.BracketMin);
+					}
+					else
+					{
+						Calc calc = new Calc(Gnd.Radix, Gnd.Basement, Gnd.BracketMin);
+
+						ngOp = 0;
+						l = calc.Normalize(l);
+						ngOp = -1;
+
+						switch (operation)
+						{
+							case 0: // power
+								ans = calc.Power(l, int.Parse(exponent));
+								break;
+
+							case 1: // root
+								ans = calc.Root(l, int.Parse(exponent));
+								break;
+
+							default:
+								throw new Exception("Unknown operation: " + operation);
+						}
 					}
 				}
 				catch (Exception ex)

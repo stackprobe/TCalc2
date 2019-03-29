@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Charlotte
 {
@@ -33,11 +34,24 @@ namespace Charlotte
 						e.Handled = true;
 					}
 				};
+
+				SetEnabledDoubleBuffer(tb); // FIXME 効果あんのか？
 			}
 
 			EditWordBreakProc ewbp = new EditWordBreakProc(EWBP_WordWrapOff);
 			Gnd.Anythings.Add(ewbp); // アンマネージドコードに渡す -> どこからも参照が無いように見える -> GCに解放される。-- なので Gnd で掴んでおく。
 			SendMessageW(tb.Handle, EM_SETWORDBREAKPROC, IntPtr.Zero, ewbp);
+		}
+
+		public static void SetEnabledDoubleBuffer(Control control)
+		{
+			control.GetType().InvokeMember(
+				"DoubleBuffered",
+				BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+				null,
+				control,
+				new object[] { true }
+				);
 		}
 	}
 }

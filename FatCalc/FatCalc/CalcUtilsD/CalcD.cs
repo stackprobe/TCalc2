@@ -31,14 +31,16 @@ namespace Charlotte.CalcUtilsD
 			this.Basement = basement;
 		}
 
-		public string Calc(string leftOperand, string strOperator, string rightOperand)
+		public string Calc(string leftOperand, string operation, string rightOperand)
 		{
 			int divBasement = 0;
 
-			if (strOperator == "/")
+			if (operation == "/")
 				divBasement = this.Basement;
 
 			FatConverter conv = new FatConverter(this.Radix);
+
+			BusyDlg.StatusBox.Post("計算可能な形式を取得しています。(CalcD)"); // app
 
 			conv.SetString(leftOperand);
 			FatFloat a = conv.GetFloat();
@@ -46,7 +48,11 @@ namespace Charlotte.CalcUtilsD
 			conv.Exponent -= divBasement;
 			FatFloat b = conv.GetFloat();
 
-			FatFloat ans = this.CalcMain(a, strOperator, b, conv.Rdx);
+			BusyDlg.StatusBox.Post("計算しています。(CalcD)"); // app
+
+			FatFloat ans = this.CalcMain(a, operation, b, conv.Rdx);
+
+			BusyDlg.StatusBox.Post("計算可能な形式をセットしています。(CalcD)"); // app
 
 			conv.SetFloat(ans);
 			conv.Exponent -= divBasement;
@@ -55,27 +61,27 @@ namespace Charlotte.CalcUtilsD
 			return answer;
 		}
 
-		private FatFloat CalcMain(FatFloat a, string strOperator, FatFloat b, int radix)
+		private FatFloat CalcMain(FatFloat a, string operation, FatFloat b, int radix)
 		{
-			if (strOperator == "+")
+			if (operation == "+")
 			{
 				new FatFloatCalc(radix).Add(a, b);
 				return a;
 			}
-			if (strOperator == "-")
+			if (operation == "-")
 			{
 				new FatFloatCalc(radix).Sub(a, b);
 				return a;
 			}
-			if (strOperator == "*")
+			if (operation == "*")
 			{
 				return new FatFloatCalc(radix).Mul(a, b);
 			}
-			if (strOperator == "/")
+			if (operation == "/")
 			{
 				return new FatFloatCalc(radix).Div(a, b);
 			}
-			throw new ArgumentException("Bad operator: " + strOperator);
+			throw new ArgumentException("Bad operator: " + operation);
 		}
 
 		public string Power(string operand, int exponent)
@@ -85,10 +91,16 @@ namespace Charlotte.CalcUtilsD
 
 			FatConverter conv = new FatConverter(this.Radix);
 
+			BusyDlg.StatusBox.Post("計算可能な形式を取得しています。(CalcD.Power)"); // app
+
 			conv.SetString(operand);
 			FatFloat a = conv.GetFloat();
 
+			BusyDlg.StatusBox.Post("計算しています。(CalcD.Power)"); // app
+
 			FatFloat ans = this.PowerMain(a, exponent, conv.Rdx);
+
+			BusyDlg.StatusBox.Post("計算可能な形式をセットしています。(CalcD.Power)"); // app
 
 			conv.SetFloat(ans);
 			string answer = conv.GetString(-1);

@@ -94,7 +94,7 @@
             this.表示VToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(555, 26);
+			this.menuStrip1.Size = new System.Drawing.Size(555, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -103,13 +103,13 @@
 			this.アプリAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.終了XToolStripMenuItem});
 			this.アプリAToolStripMenuItem.Name = "アプリAToolStripMenuItem";
-			this.アプリAToolStripMenuItem.Size = new System.Drawing.Size(74, 22);
+			this.アプリAToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
 			this.アプリAToolStripMenuItem.Text = "アプリ(&A)";
 			// 
 			// 終了XToolStripMenuItem
 			// 
 			this.終了XToolStripMenuItem.Name = "終了XToolStripMenuItem";
-			this.終了XToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+			this.終了XToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
 			this.終了XToolStripMenuItem.Text = "終了(&X)";
 			this.終了XToolStripMenuItem.Click += new System.EventHandler(this.終了XToolStripMenuItem_Click);
 			// 
@@ -120,27 +120,27 @@
             this.精度小数点以下x桁までBToolStripMenuItem,
             this.角括弧表記する数字MToolStripMenuItem});
 			this.設定SToolStripMenuItem.Name = "設定SToolStripMenuItem";
-			this.設定SToolStripMenuItem.Size = new System.Drawing.Size(62, 22);
+			this.設定SToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
 			this.設定SToolStripMenuItem.Text = "設定(&S)";
 			// 
 			// 基数RToolStripMenuItem
 			// 
 			this.基数RToolStripMenuItem.Name = "基数RToolStripMenuItem";
-			this.基数RToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+			this.基数RToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
 			this.基数RToolStripMenuItem.Text = "基数(&R)";
 			this.基数RToolStripMenuItem.Click += new System.EventHandler(this.基数RToolStripMenuItem_Click);
 			// 
 			// 精度小数点以下x桁までBToolStripMenuItem
 			// 
 			this.精度小数点以下x桁までBToolStripMenuItem.Name = "精度小数点以下x桁までBToolStripMenuItem";
-			this.精度小数点以下x桁までBToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+			this.精度小数点以下x桁までBToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
 			this.精度小数点以下x桁までBToolStripMenuItem.Text = "精度 - 小数点以下？桁まで(&B)";
 			this.精度小数点以下x桁までBToolStripMenuItem.Click += new System.EventHandler(this.精度小数点以下x桁までBToolStripMenuItem_Click);
 			// 
 			// 角括弧表記する数字MToolStripMenuItem
 			// 
 			this.角括弧表記する数字MToolStripMenuItem.Name = "角括弧表記する数字MToolStripMenuItem";
-			this.角括弧表記する数字MToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+			this.角括弧表記する数字MToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
 			this.角括弧表記する数字MToolStripMenuItem.Text = "角括弧表記する最小の数字(M)";
 			this.角括弧表記する数字MToolStripMenuItem.Click += new System.EventHandler(this.角括弧表記する数字MToolStripMenuItem_Click);
 			// 
@@ -149,13 +149,13 @@
 			this.表示VToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.リセットRToolStripMenuItem});
 			this.表示VToolStripMenuItem.Name = "表示VToolStripMenuItem";
-			this.表示VToolStripMenuItem.Size = new System.Drawing.Size(62, 22);
+			this.表示VToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
 			this.表示VToolStripMenuItem.Text = "表示(&V)";
 			// 
 			// リセットRToolStripMenuItem
 			// 
 			this.リセットRToolStripMenuItem.Name = "リセットRToolStripMenuItem";
-			this.リセットRToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+			this.リセットRToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.リセットRToolStripMenuItem.Text = "リセット(&R)";
 			this.リセットRToolStripMenuItem.Click += new System.EventHandler(this.リセットRToolStripMenuItem_Click);
 			// 
@@ -164,16 +164,16 @@
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SouthStatus,
             this.SouthEastStatus});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 509);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 510);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(555, 23);
+			this.statusStrip1.Size = new System.Drawing.Size(555, 22);
 			this.statusStrip1.TabIndex = 2;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
 			// SouthStatus
 			// 
 			this.SouthStatus.Name = "SouthStatus";
-			this.SouthStatus.Size = new System.Drawing.Size(436, 18);
+			this.SouthStatus.Size = new System.Drawing.Size(454, 17);
 			this.SouthStatus.Spring = true;
 			this.SouthStatus.Text = "準備しています...";
 			this.SouthStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,7 +181,7 @@
 			// SouthEastStatus
 			// 
 			this.SouthEastStatus.Name = "SouthEastStatus";
-			this.SouthEastStatus.Size = new System.Drawing.Size(104, 18);
+			this.SouthEastStatus.Size = new System.Drawing.Size(86, 17);
 			this.SouthEastStatus.Text = "準備しています...";
 			// 
 			// MainTab
@@ -663,6 +663,7 @@
 			this.Controls.Add(this.MainTab);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
+			this.DoubleBuffered = true;
 			this.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;

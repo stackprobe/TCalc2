@@ -60,6 +60,7 @@
       <DependentUpon>BusyDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="CalcUtilsD\CalcD.cs" />
+    <Compile Include="CalcUtilsD\CalcDUtils.cs" />
     <Compile Include="CalcUtilsD\FatConverter.cs" />
     <Compile Include="CalcUtilsD\FatFloat.cs" />
     <Compile Include="CalcUtilsD\FatFloatCalc.cs" />
