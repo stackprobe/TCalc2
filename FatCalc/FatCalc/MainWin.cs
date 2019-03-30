@@ -83,6 +83,7 @@ namespace Charlotte
 				new ControlRectMan(this, refCtrl, 0.0, 0.0, 0.0, 0.5, this.PrOp);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrOperation);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrExponent);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrDecLb);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrExecute);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrAnsOp);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrAnsCB);
@@ -95,8 +96,10 @@ namespace Charlotte
 				new ControlRectMan(this, refCtrl, 0.0, 0.0, 0.0, 0.5, this.CxOp);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxOpRadixLb);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxOpRadix);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxOpDecLb);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsRadixLb);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsRadix);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsDecLb);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxExecute);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsOp);
 				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsCB);

@@ -78,6 +78,9 @@
 			this.CxOpLb = new System.Windows.Forms.Label();
 			this.CxOpCB = new System.Windows.Forms.Button();
 			this.CxExecute = new System.Windows.Forms.Button();
+			this.PrDecLb = new System.Windows.Forms.Label();
+			this.CxOpDecLb = new System.Windows.Forms.Label();
+			this.CxAnsDecLb = new System.Windows.Forms.Label();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.MainTab.SuspendLayout();
@@ -94,7 +97,7 @@
             this.表示VToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(555, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(590, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -166,14 +169,14 @@
             this.SouthEastStatus});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 510);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(555, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(590, 22);
 			this.statusStrip1.TabIndex = 2;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
 			// SouthStatus
 			// 
 			this.SouthStatus.Name = "SouthStatus";
-			this.SouthStatus.Size = new System.Drawing.Size(454, 17);
+			this.SouthStatus.Size = new System.Drawing.Size(489, 17);
 			this.SouthStatus.Spring = true;
 			this.SouthStatus.Text = "準備しています...";
 			this.SouthStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,16 +189,16 @@
 			// 
 			// MainTab
 			// 
-			this.MainTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.MainTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.MainTab.Controls.Add(this.TabFourOperation);
 			this.MainTab.Controls.Add(this.TabPowerRoot);
 			this.MainTab.Controls.Add(this.TabChangeRadix);
 			this.MainTab.Location = new System.Drawing.Point(12, 29);
 			this.MainTab.Name = "MainTab";
 			this.MainTab.SelectedIndex = 0;
-			this.MainTab.Size = new System.Drawing.Size(531, 477);
+			this.MainTab.Size = new System.Drawing.Size(566, 477);
 			this.MainTab.TabIndex = 1;
 			this.MainTab.SelectedIndexChanged += new System.EventHandler(this.MainTab_SelectedIndexChanged);
 			// 
@@ -217,16 +220,16 @@
 			this.TabFourOperation.Location = new System.Drawing.Point(4, 29);
 			this.TabFourOperation.Name = "TabFourOperation";
 			this.TabFourOperation.Padding = new System.Windows.Forms.Padding(3);
-			this.TabFourOperation.Size = new System.Drawing.Size(523, 444);
+			this.TabFourOperation.Size = new System.Drawing.Size(558, 444);
 			this.TabFourOperation.TabIndex = 0;
 			this.TabFourOperation.Text = "加減乗除 - 剰余";
 			this.TabFourOperation.UseVisualStyleBackColor = true;
 			// 
 			// Ans
 			// 
-			this.Ans.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.Ans.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.Ans.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.Ans.Location = new System.Drawing.Point(6, 252);
 			this.Ans.MaxLength = 0;
@@ -234,37 +237,37 @@
 			this.Ans.Name = "Ans";
 			this.Ans.ReadOnly = true;
 			this.Ans.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.Ans.Size = new System.Drawing.Size(511, 186);
+			this.Ans.Size = new System.Drawing.Size(546, 186);
 			this.Ans.TabIndex = 9;
 			this.Ans.Text = "1行目\r\n2行目\r\n3行目\r\n4行目\r\n5行目\r\n6行目\r\n7行目\r\n8行目\r\n9行目";
 			this.Ans.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Ans_KeyPress);
 			// 
 			// Op2
 			// 
-			this.Op2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.Op2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.Op2.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.Op2.Location = new System.Drawing.Point(6, 146);
 			this.Op2.MaxLength = 100000;
 			this.Op2.Multiline = true;
 			this.Op2.Name = "Op2";
 			this.Op2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.Op2.Size = new System.Drawing.Size(511, 66);
+			this.Op2.Size = new System.Drawing.Size(546, 66);
 			this.Op2.TabIndex = 4;
 			this.Op2.Text = "1行目\r\n2行目\r\n3行目";
 			this.Op2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Op2_KeyPress);
 			// 
 			// Op1
 			// 
-			this.Op1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.Op1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.Op1.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.Op1.Location = new System.Drawing.Point(6, 40);
 			this.Op1.MaxLength = 100000;
 			this.Op1.Multiline = true;
 			this.Op1.Name = "Op1";
 			this.Op1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.Op1.Size = new System.Drawing.Size(511, 66);
+			this.Op1.Size = new System.Drawing.Size(546, 66);
 			this.Op1.TabIndex = 1;
 			this.Op1.Text = "123456789112345678921234567893123456789412345678951234567896\r\n2行目\r\n3行目";
 			this.Op1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Op1_KeyPress);
@@ -272,7 +275,7 @@
 			// SwapOp12
 			// 
 			this.SwapOp12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.SwapOp12.Location = new System.Drawing.Point(289, 112);
+			this.SwapOp12.Location = new System.Drawing.Point(324, 112);
 			this.SwapOp12.Name = "SwapOp12";
 			this.SwapOp12.Size = new System.Drawing.Size(133, 28);
 			this.SwapOp12.TabIndex = 5;
@@ -283,7 +286,7 @@
 			// AnsOp2
 			// 
 			this.AnsOp2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.AnsOp2.Location = new System.Drawing.Point(333, 218);
+			this.AnsOp2.Location = new System.Drawing.Point(368, 218);
 			this.AnsOp2.Name = "AnsOp2";
 			this.AnsOp2.Size = new System.Drawing.Size(89, 28);
 			this.AnsOp2.TabIndex = 11;
@@ -294,7 +297,7 @@
 			// AnsOp1
 			// 
 			this.AnsOp1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.AnsOp1.Location = new System.Drawing.Point(238, 218);
+			this.AnsOp1.Location = new System.Drawing.Point(273, 218);
 			this.AnsOp1.Name = "AnsOp1";
 			this.AnsOp1.Size = new System.Drawing.Size(89, 28);
 			this.AnsOp1.TabIndex = 10;
@@ -323,7 +326,7 @@
 			// AnsCB
 			// 
 			this.AnsCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.AnsCB.Location = new System.Drawing.Point(428, 218);
+			this.AnsCB.Location = new System.Drawing.Point(463, 218);
 			this.AnsCB.Name = "AnsCB";
 			this.AnsCB.Size = new System.Drawing.Size(89, 28);
 			this.AnsCB.TabIndex = 12;
@@ -334,7 +337,7 @@
 			// Op2CB
 			// 
 			this.Op2CB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.Op2CB.Location = new System.Drawing.Point(428, 112);
+			this.Op2CB.Location = new System.Drawing.Point(463, 112);
 			this.Op2CB.Name = "Op2CB";
 			this.Op2CB.Size = new System.Drawing.Size(89, 28);
 			this.Op2CB.TabIndex = 6;
@@ -345,7 +348,7 @@
 			// Op1CB
 			// 
 			this.Op1CB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.Op1CB.Location = new System.Drawing.Point(428, 6);
+			this.Op1CB.Location = new System.Drawing.Point(463, 6);
 			this.Op1CB.Name = "Op1CB";
 			this.Op1CB.Size = new System.Drawing.Size(89, 28);
 			this.Op1CB.TabIndex = 2;
@@ -391,10 +394,11 @@
 			this.TabPowerRoot.Controls.Add(this.PrOpCB);
 			this.TabPowerRoot.Controls.Add(this.PrExecute);
 			this.TabPowerRoot.Controls.Add(this.PrOperation);
+			this.TabPowerRoot.Controls.Add(this.PrDecLb);
 			this.TabPowerRoot.Location = new System.Drawing.Point(4, 29);
 			this.TabPowerRoot.Name = "TabPowerRoot";
 			this.TabPowerRoot.Padding = new System.Windows.Forms.Padding(3);
-			this.TabPowerRoot.Size = new System.Drawing.Size(523, 444);
+			this.TabPowerRoot.Size = new System.Drawing.Size(558, 444);
 			this.TabPowerRoot.TabIndex = 1;
 			this.TabPowerRoot.Text = "べき乗 - べき根";
 			this.TabPowerRoot.UseVisualStyleBackColor = true;
@@ -402,7 +406,7 @@
 			// PrAnsOp
 			// 
 			this.PrAnsOp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.PrAnsOp.Location = new System.Drawing.Point(333, 112);
+			this.PrAnsOp.Location = new System.Drawing.Point(368, 112);
 			this.PrAnsOp.Name = "PrAnsOp";
 			this.PrAnsOp.Size = new System.Drawing.Size(89, 28);
 			this.PrAnsOp.TabIndex = 7;
@@ -425,7 +429,7 @@
 			// PrAnsCB
 			// 
 			this.PrAnsCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.PrAnsCB.Location = new System.Drawing.Point(428, 112);
+			this.PrAnsCB.Location = new System.Drawing.Point(463, 112);
 			this.PrAnsCB.Name = "PrAnsCB";
 			this.PrAnsCB.Size = new System.Drawing.Size(89, 28);
 			this.PrAnsCB.TabIndex = 8;
@@ -435,9 +439,9 @@
 			// 
 			// PrAns
 			// 
-			this.PrAns.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.PrAns.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.PrAns.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.PrAns.Location = new System.Drawing.Point(6, 145);
 			this.PrAns.MaxLength = 0;
@@ -445,22 +449,22 @@
 			this.PrAns.Name = "PrAns";
 			this.PrAns.ReadOnly = true;
 			this.PrAns.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.PrAns.Size = new System.Drawing.Size(511, 293);
+			this.PrAns.Size = new System.Drawing.Size(546, 293);
 			this.PrAns.TabIndex = 6;
 			this.PrAns.Text = "準備しています...";
 			this.PrAns.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrAns_KeyPress);
 			// 
 			// PrOp
 			// 
-			this.PrOp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.PrOp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.PrOp.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.PrOp.Location = new System.Drawing.Point(6, 40);
 			this.PrOp.MaxLength = 100000;
 			this.PrOp.Multiline = true;
 			this.PrOp.Name = "PrOp";
 			this.PrOp.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.PrOp.Size = new System.Drawing.Size(511, 66);
+			this.PrOp.Size = new System.Drawing.Size(546, 66);
 			this.PrOp.TabIndex = 1;
 			this.PrOp.Text = "1行目\r\n2行目\r\n3行目";
 			this.PrOp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrOp_KeyPress);
@@ -477,7 +481,7 @@
 			// PrOpCB
 			// 
 			this.PrOpCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.PrOpCB.Location = new System.Drawing.Point(428, 6);
+			this.PrOpCB.Location = new System.Drawing.Point(463, 6);
 			this.PrOpCB.Name = "PrOpCB";
 			this.PrOpCB.Size = new System.Drawing.Size(89, 28);
 			this.PrOpCB.TabIndex = 2;
@@ -487,7 +491,7 @@
 			// 
 			// PrExecute
 			// 
-			this.PrExecute.Location = new System.Drawing.Point(228, 112);
+			this.PrExecute.Location = new System.Drawing.Point(263, 112);
 			this.PrExecute.Name = "PrExecute";
 			this.PrExecute.Size = new System.Drawing.Size(89, 28);
 			this.PrExecute.TabIndex = 5;
@@ -511,6 +515,8 @@
 			// 
 			// TabChangeRadix
 			// 
+			this.TabChangeRadix.Controls.Add(this.CxAnsDecLb);
+			this.TabChangeRadix.Controls.Add(this.CxOpDecLb);
 			this.TabChangeRadix.Controls.Add(this.CxAnsRadixLb);
 			this.TabChangeRadix.Controls.Add(this.CxOpRadixLb);
 			this.TabChangeRadix.Controls.Add(this.CxAnsRadix);
@@ -524,7 +530,7 @@
 			this.TabChangeRadix.Controls.Add(this.CxExecute);
 			this.TabChangeRadix.Location = new System.Drawing.Point(4, 29);
 			this.TabChangeRadix.Name = "TabChangeRadix";
-			this.TabChangeRadix.Size = new System.Drawing.Size(523, 444);
+			this.TabChangeRadix.Size = new System.Drawing.Size(558, 444);
 			this.TabChangeRadix.TabIndex = 2;
 			this.TabChangeRadix.Text = "基数変換";
 			this.TabChangeRadix.UseVisualStyleBackColor = true;
@@ -562,7 +568,7 @@
 			// CxAnsOp
 			// 
 			this.CxAnsOp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.CxAnsOp.Location = new System.Drawing.Point(375, 241);
+			this.CxAnsOp.Location = new System.Drawing.Point(410, 241);
 			this.CxAnsOp.Name = "CxAnsOp";
 			this.CxAnsOp.Size = new System.Drawing.Size(68, 28);
 			this.CxAnsOp.TabIndex = 9;
@@ -585,7 +591,7 @@
 			// CxAnsCB
 			// 
 			this.CxAnsCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.CxAnsCB.Location = new System.Drawing.Point(449, 241);
+			this.CxAnsCB.Location = new System.Drawing.Point(484, 241);
 			this.CxAnsCB.Name = "CxAnsCB";
 			this.CxAnsCB.Size = new System.Drawing.Size(68, 28);
 			this.CxAnsCB.TabIndex = 10;
@@ -595,9 +601,9 @@
 			// 
 			// CxAns
 			// 
-			this.CxAns.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.CxAns.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.CxAns.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.CxAns.Location = new System.Drawing.Point(6, 275);
 			this.CxAns.MaxLength = 0;
@@ -605,22 +611,22 @@
 			this.CxAns.Name = "CxAns";
 			this.CxAns.ReadOnly = true;
 			this.CxAns.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.CxAns.Size = new System.Drawing.Size(511, 163);
+			this.CxAns.Size = new System.Drawing.Size(546, 163);
 			this.CxAns.TabIndex = 8;
 			this.CxAns.Text = "準備しています...";
 			this.CxAns.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CxAns_KeyPress);
 			// 
 			// CxOp
 			// 
-			this.CxOp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.CxOp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.CxOp.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.CxOp.Location = new System.Drawing.Point(6, 40);
 			this.CxOp.MaxLength = 100000;
 			this.CxOp.Multiline = true;
 			this.CxOp.Name = "CxOp";
 			this.CxOp.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.CxOp.Size = new System.Drawing.Size(511, 163);
+			this.CxOp.Size = new System.Drawing.Size(546, 163);
 			this.CxOp.TabIndex = 1;
 			this.CxOp.Text = "準備しています...";
 			this.CxOp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CxOp_KeyPress);
@@ -637,7 +643,7 @@
 			// CxOpCB
 			// 
 			this.CxOpCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.CxOpCB.Location = new System.Drawing.Point(428, 6);
+			this.CxOpCB.Location = new System.Drawing.Point(463, 6);
 			this.CxOpCB.Name = "CxOpCB";
 			this.CxOpCB.Size = new System.Drawing.Size(89, 28);
 			this.CxOpCB.TabIndex = 2;
@@ -647,7 +653,7 @@
 			// 
 			// CxExecute
 			// 
-			this.CxExecute.Location = new System.Drawing.Point(296, 209);
+			this.CxExecute.Location = new System.Drawing.Point(331, 209);
 			this.CxExecute.Name = "CxExecute";
 			this.CxExecute.Size = new System.Drawing.Size(73, 60);
 			this.CxExecute.TabIndex = 7;
@@ -655,15 +661,47 @@
 			this.CxExecute.UseVisualStyleBackColor = true;
 			this.CxExecute.Click += new System.EventHandler(this.CxExecute_Click);
 			// 
+			// PrDecLb
+			// 
+			this.PrDecLb.AutoSize = true;
+			this.PrDecLb.Font = new System.Drawing.Font("メイリオ", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.PrDecLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.PrDecLb.Location = new System.Drawing.Point(225, 123);
+			this.PrDecLb.Name = "PrDecLb";
+			this.PrDecLb.Size = new System.Drawing.Size(32, 17);
+			this.PrDecLb.TabIndex = 9;
+			this.PrDecLb.Text = "(10)";
+			// 
+			// CxOpDecLb
+			// 
+			this.CxOpDecLb.AutoSize = true;
+			this.CxOpDecLb.Font = new System.Drawing.Font("メイリオ", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.CxOpDecLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.CxOpDecLb.Location = new System.Drawing.Point(293, 219);
+			this.CxOpDecLb.Name = "CxOpDecLb";
+			this.CxOpDecLb.Size = new System.Drawing.Size(32, 17);
+			this.CxOpDecLb.TabIndex = 11;
+			this.CxOpDecLb.Text = "(10)";
+			// 
+			// CxAnsDecLb
+			// 
+			this.CxAnsDecLb.AutoSize = true;
+			this.CxAnsDecLb.Font = new System.Drawing.Font("メイリオ", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.CxAnsDecLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.CxAnsDecLb.Location = new System.Drawing.Point(293, 252);
+			this.CxAnsDecLb.Name = "CxAnsDecLb";
+			this.CxAnsDecLb.Size = new System.Drawing.Size(32, 17);
+			this.CxAnsDecLb.TabIndex = 12;
+			this.CxAnsDecLb.Text = "(10)";
+			// 
 			// MainWin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(555, 532);
+			this.ClientSize = new System.Drawing.Size(590, 532);
 			this.Controls.Add(this.MainTab);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
-			this.DoubleBuffered = true;
 			this.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
@@ -741,6 +779,9 @@
 		private System.Windows.Forms.Label CxAnsRadixLb;
 		private System.Windows.Forms.ToolStripMenuItem 表示VToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem リセットRToolStripMenuItem;
+		private System.Windows.Forms.Label PrDecLb;
+		private System.Windows.Forms.Label CxAnsDecLb;
+		private System.Windows.Forms.Label CxOpDecLb;
 	}
 }
 
