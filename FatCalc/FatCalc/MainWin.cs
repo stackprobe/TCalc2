@@ -57,50 +57,50 @@ namespace Charlotte
 			WordWrapOffTools.WordWrapOff(this.CxOp);
 			WordWrapOffTools.WordWrapOff(this.CxAns);
 
-			WordWrapOffTools.SetEnabledDoubleBuffer(this.MainTab); // FIXME 効果あんのか？
+			//WordWrapOffTools.SetEnabledDoubleBuffer(this.MainTab); // 効果あんのか？
 
 			{
 				Control refCtrl = this.TabFourOperation;
 				double f13 = 1.0 / 3.0;
 				double f23 = 2.0 / 3.0;
 
-				new ControlRectMan(refCtrl, 0.0, 0.0, 0.0, f13, this.Op1);
-				new ControlRectMan(refCtrl, 0.0, f13, 0.0, 0.0, this.Op2Lb);
-				new ControlRectMan(refCtrl, 0.0, f13, 0.0, 0.0, this.SwapOp12);
-				new ControlRectMan(refCtrl, 0.0, f13, 0.0, 0.0, this.Op2CB);
-				new ControlRectMan(refCtrl, 0.0, f13, 0.0, f13, this.Op2);
-				new ControlRectMan(refCtrl, 0.0, f23, 0.0, 0.0, this.Operation);
-				new ControlRectMan(refCtrl, 0.0, f23, 0.0, 0.0, this.Execute);
-				new ControlRectMan(refCtrl, 0.0, f23, 0.0, 0.0, this.AnsOp1);
-				new ControlRectMan(refCtrl, 0.0, f23, 0.0, 0.0, this.AnsOp2);
-				new ControlRectMan(refCtrl, 0.0, f23, 0.0, 0.0, this.AnsCB);
-				new ControlRectMan(refCtrl, 0.0, f23, 0.0, f13, this.Ans);
+				new ControlRectMan(this, refCtrl, 0.0, 0.0, 0.0, f13, this.Op1);
+				new ControlRectMan(this, refCtrl, 0.0, f13, 0.0, 0.0, this.Op2Lb);
+				new ControlRectMan(this, refCtrl, 0.0, f13, 0.0, 0.0, this.SwapOp12);
+				new ControlRectMan(this, refCtrl, 0.0, f13, 0.0, 0.0, this.Op2CB);
+				new ControlRectMan(this, refCtrl, 0.0, f13, 0.0, f13, this.Op2);
+				new ControlRectMan(this, refCtrl, 0.0, f23, 0.0, 0.0, this.Operation);
+				new ControlRectMan(this, refCtrl, 0.0, f23, 0.0, 0.0, this.Execute);
+				new ControlRectMan(this, refCtrl, 0.0, f23, 0.0, 0.0, this.AnsOp1);
+				new ControlRectMan(this, refCtrl, 0.0, f23, 0.0, 0.0, this.AnsOp2);
+				new ControlRectMan(this, refCtrl, 0.0, f23, 0.0, 0.0, this.AnsCB);
+				new ControlRectMan(this, refCtrl, 0.0, f23, 0.0, f13, this.Ans);
 			}
 
 			{
 				Control refCtrl = this.TabPowerRoot;
 
-				new ControlRectMan(refCtrl, 0.0, 0.0, 0.0, 0.5, this.PrOp);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrOperation);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrExponent);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrExecute);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrAnsOp);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrAnsCB);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.5, this.PrAns);
+				new ControlRectMan(this, refCtrl, 0.0, 0.0, 0.0, 0.5, this.PrOp);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrOperation);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrExponent);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrExecute);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrAnsOp);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.PrAnsCB);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.5, this.PrAns);
 			}
 
 			{
 				Control refCtrl = this.TabChangeRadix;
 
-				new ControlRectMan(refCtrl, 0.0, 0.0, 0.0, 0.5, this.CxOp);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxOpRadixLb);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxOpRadix);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsRadixLb);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsRadix);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxExecute);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsOp);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsCB);
-				new ControlRectMan(refCtrl, 0.0, 0.5, 0.0, 0.5, this.CxAns);
+				new ControlRectMan(this, refCtrl, 0.0, 0.0, 0.0, 0.5, this.CxOp);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxOpRadixLb);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxOpRadix);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsRadixLb);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsRadix);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxExecute);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsOp);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.0, this.CxAnsCB);
+				new ControlRectMan(this, refCtrl, 0.0, 0.5, 0.0, 0.5, this.CxAns);
 			}
 
 			if (Gnd.MainWin_L != -1)

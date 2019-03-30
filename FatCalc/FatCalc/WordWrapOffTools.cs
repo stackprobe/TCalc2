@@ -35,7 +35,7 @@ namespace Charlotte
 					}
 				};
 
-				SetEnabledDoubleBuffer(tb); // FIXME 効果あんのか？
+				//SetEnabledDoubleBuffer(tb); // 効果あんのか？
 			}
 
 			EditWordBreakProc ewbp = new EditWordBreakProc(EWBP_WordWrapOff);
