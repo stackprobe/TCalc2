@@ -106,7 +106,7 @@ namespace Charlotte
 					BackColor = this.Ctrl.BackColor,
 				};
 
-				this.Ctrl.Text = this.Ctrl.Text.Substring(0, 900) + " ...\r\n" + "フォームの位置または大きさを変更しています。";
+				this.Ctrl.Text = this.Ctrl.Text.Substring(0, 900) + " ... (ウィンドウを移動しているか大きさを変更しています)";
 				this.Ctrl.ForeColor = Consts.ResizingForeColor;
 				this.Ctrl.BackColor = Consts.ResizingBackColor;
 			}

@@ -39,8 +39,8 @@ namespace Charlotte
 		public static readonly Color AnswerBackColor = Color.FromArgb(240, 255, 255);
 		public static readonly Color ErrorForeColor = Color.Red;
 		public static readonly Color ErrorBackColor = Color.FromArgb(255, 255, 220);
-		public static readonly Color ResizingForeColor = Color.DarkBlue;
-		public static readonly Color ResizingBackColor = Color.DarkOrange;
+		public static readonly Color ResizingForeColor = Color.Blue;
+		public static readonly Color ResizingBackColor = Color.FromArgb(255, 230, 200);
 
 		public const int PR_OPERATION_POWER = 0;
 		public const int PR_OPERATION_ROOT = 1;
