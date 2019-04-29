@@ -11,11 +11,35 @@ namespace Charlotte.CalcUtilsD
 		{
 			BusyDlg.StatusBox.Post("角括弧表記を適用しています。(CalcD)"); // app
 
-			for (int index = 35; bracketMin <= index; index--)
+			StringBuilder buff = new StringBuilder();
+
+			for (int index = 0; index < operand.Length; index++)
 			{
-				operand = operand.Replace(FatConverter.DIGIT_36.Substring(index, 1), "[" + index + "]");
+				char chr = operand[index];
+
+				if (chr == '[')
+				{
+					for (; ; )
+					{
+						buff.Append(operand[index]);
+
+						if (operand[index] == ']')
+							break;
+
+						index++;
+					}
+				}
+				else
+				{
+					int value = FatConverter.DIGIT_36.IndexOf(chr);
+
+					if (value < bracketMin)
+						buff.Append(chr);
+					else
+						buff.Append("[" + value + "]");
+				}
 			}
-			return operand;
+			return buff.ToString();
 		}
 	}
 }
