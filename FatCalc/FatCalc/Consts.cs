@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Charlotte
 {
-	public class Consts
+	public static class Consts
 	{
 		private static Color _defForeColor;
 

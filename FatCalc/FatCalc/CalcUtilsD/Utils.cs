@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Charlotte.CalcUtilsD
 {
-	public class Utils
+	public static class Utils
 	{
 		public static int[] CopyOf(int[] arr, int size)
 		{

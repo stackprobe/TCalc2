@@ -8,7 +8,7 @@ using Charlotte.Tools;
 
 namespace Charlotte
 {
-	public class Logger
+	public static class Logger
 	{
 		private static bool _wrote = false;
 

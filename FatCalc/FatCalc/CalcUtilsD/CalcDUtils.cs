@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Charlotte.CalcUtilsD
 {
-	public class CalcDUtils
+	public static class CalcDUtils
 	{
 		public static string ApplyBracketMin(string operand, int bracketMin)
 		{

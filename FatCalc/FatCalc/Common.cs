@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Charlotte
 {
-	public class Common
+	public static class Common
 	{
 		public static void SetOperand(TextBox tb, string text)
 		{

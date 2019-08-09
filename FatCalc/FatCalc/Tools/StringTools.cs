@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Charlotte.Tools
 {
-	public class StringTools
+	public static class StringTools
 	{
 		public const string ALPHA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		public const string alpha = "abcdefghijklmnopqrstuvwxyz";

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Charlotte
 {
-	public class Gnd
+	public static class Gnd
 	{
 		public static bool DebugMode = true;
 		public static bool SffBinaryMode = true;

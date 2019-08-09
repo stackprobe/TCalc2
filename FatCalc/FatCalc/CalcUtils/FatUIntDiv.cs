@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Charlotte.CalcUtils
 {
-	public class FatUIntDiv
+	public static class FatUIntDiv
 	{
 		public static FatUInt Perform(FatUInt a, FatUInt b, FatUInt ret)
 		{
