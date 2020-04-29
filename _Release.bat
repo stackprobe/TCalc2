@@ -8,4 +8,4 @@ C:\Factory\SubTools\EmbedConfig.exe --factory-dir-disabled out\KillAndBoot.exe
 
 C:\Factory\SubTools\zip.exe /O out FatCalc
 
-PAUSE
+IF NOT "%1" == "/-P" PAUSE
