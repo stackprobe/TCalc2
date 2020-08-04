@@ -366,7 +366,7 @@ namespace Charlotte.CalcUtils
 
 			int bit = a.GetFarthestBit();
 			bit /= 2;
-			bit += 5; // HACK マージン適当
+			bit += 5; // HACK: マージン適当
 
 			FatUInt ret = new FatUInt();
 

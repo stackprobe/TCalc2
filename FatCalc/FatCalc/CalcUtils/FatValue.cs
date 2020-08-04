@@ -247,7 +247,7 @@ namespace Charlotte.CalcUtils
 
 		public void SetFatFloat(FatFloat src)
 		{
-			// HACK 遅い！ -- 改善した。様子見 @ 2016.5.21 -- 元に戻してみたけど、遅かった。@ 2016.5.30
+			// HACK: 遅い！ -- 改善した。様子見 @ 2016.5.21 -- 元に戻してみたけど、遅かった。@ 2016.5.30
 			// -- 2^(2^n) 進数のときは速く。@ 2016.7.25
 
 			if (src == null) throw new ArgumentNullException();
